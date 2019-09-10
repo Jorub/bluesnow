@@ -16,7 +16,10 @@ The fraction of total, dark, medium and light blue
 A simple function that reads that takes the ouput of BB_filter and calculates the proportion or fraction of total blue pixels, dark blue pixels, medium blue pixels and light blue pixels.
 }
 \examples{
-BB_filtered_image <- BB_filter(RGBimage)
+library(jpeg)
+raw_image <- <- readJPEG(system.file("example.jpg", package = "bluesnow"))
+## Apply filter to raw image data
+BB_filtered_image <- BB_filter(rgb_image = raw_image)
 BB_fraction(filtered_image = BB_filtered_image)
 }
 \author{

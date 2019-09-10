@@ -24,8 +24,12 @@ Returns the vertical distribution of blue color as a vector.
 A simple function that processes the result of BB_filter and returns a vector with fractions over the length of an image of a sprinkling experiment with Brilliant Blue.
 }
 \examples{
-BB_h_dist <- BB_hor_distribution(filtered_image = threshold_data, blue_selections = 'all')
-
+library(jpeg)
+raw_image <- <- readJPEG(system.file("example.jpg", package = "bluesnow"))
+## Apply filter to raw image data
+BB_filtered_image <- BB_filter(rgb_image = raw_image)
+BB_h_dist <- BB_hor_distribution(filtered_image = BB_filtered_image, blue_selection = 'all')
+plot(BB_h_dist, xlab = "Width [Pixels]", ylab = "Fraction of Blue [-]")
 }
 \author{
 Johanna Bloecher, \email{bloecher@fzp.czu.cz}

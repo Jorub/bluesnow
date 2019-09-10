@@ -9,7 +9,10 @@
 #' @author Johanna Bloecher, \email{bloecher@fzp.czu.cz}
 #'
 #' @examples
-#' BB_filtered_image <- BB_filter(RGBimage)
+#' library(jpeg)
+#' raw_image <- <- readJPEG(system.file("example.jpg", package = "bluesnow"))
+#' ## Apply filter to raw image data
+#' BB_filtered_image <- BB_filter(rgb_image = raw_image)
 #' BB_fraction(filtered_image = BB_filtered_image)
 #' @export
 
@@ -45,10 +48,6 @@ BB_fraction <- function(filtered_image) {
                   c("light  blue [%]", light_blue_fraction),
                   c("medium blue [%]", medium_blue_fraction),
                   c("dark blue [%]", dark_blue_fraction))
-  print(paste("Fraction of all blue =", blue_fraction, "%,",
-              "Fraction of light blue =", light_blue_fraction, "%,",
-              "Fractionof medium blue =", medium_blue_fraction, "%,",
-              "Fraction of dark blue =", dark_blue_fraction, "%"))
 
   return(result)
 }

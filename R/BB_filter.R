@@ -9,10 +9,15 @@
 #' @author Johanna Bloecher, \email{bloecher@fzp.czu.cz}
 #'
 #' @examples
-#' ## To process raw image
-#' raw_image <- readJPEG('path to image')
+#' ## load image
+#' library(jpeg)
+#' # read image
+#' raw_image <- readJPEG(system.file("example.jpg", package = "bluesnow"))
 #' ## Apply filter to raw image data
 #' BB_filtered_image <- BB_filter(rgb_image = raw_image)
+#' # plot filtered image
+#' image(BB_filtered_image, col = c('white', 'lightblue', 'royalblue1', 'darkblue'))
+#' @import jpeg
 #' @export
 
 BB_filter <- function(rgb_image)
@@ -31,7 +36,7 @@ BB_filter <- function(rgb_image)
   # plot image
   rgb_image_green <- t(rgb_image[,,2])#  greem channel
   rgb_image_blue <- t(rgb_image[,,3])#  blue channel
-  rgb_image_red <- t(rgb_image[,,1])#  best visual contrast is 1, red channel
+  rgb_image_red <- t(rgb_image[,,1])#  red channel
 
   filtered_image_green <- rgb_image_green
   filtered_image_blue <- rgb_image_blue
@@ -78,5 +83,6 @@ BB_filter <- function(rgb_image)
       }
     }
   }
-  return(filtered_image)
+  flip_vert <- function(x) apply(x,1,rev)
+  return(t(flip_vert(filtered_image)))
 }

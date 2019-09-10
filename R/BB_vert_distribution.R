@@ -16,8 +16,12 @@
 #' @author Johanna Bloecher, \email{bloecher@fzp.czu.cz}
 #'
 #' @examples
-#' BB_v_dist <- BB_vert_distribution(filtered_image = threshold_data, blue_selections = 'all')
-#'
+#' library(jpeg)
+#' raw_image <- <- readJPEG(system.file("example.jpg", package = "bluesnow"))
+#' ## Apply filter to raw image data
+#' BB_filtered_image <- BB_filter(rgb_image = raw_image)
+#' BB_v_dist <- BB_vert_distribution(filtered_image = BB_filtered_image, blue_selection = 'all')
+#' plot(BB_v_dist$Depth, BB_v_dist$Bluefraction, xlab = "Depth [Pixels]", ylab = "Fraction of Blue [-]")
 #' @export
 
 

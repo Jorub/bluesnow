@@ -16,10 +16,14 @@ A matrix with applied threshold where 0 is white, 1 is light blue, 2 is medium b
 This function uses RGB thresholds to assign one of four colors to each pixel (white, dark blue, medium blue or light blue). Grey shadows are assigned white. The filter aims to make processing easier. It only works for images of snow.
 }
 \examples{
-## To process raw image
-raw_image <- readJPEG('path to image')
+## load image
+library(jpeg)
+# read image
+raw_image <- readJPEG(system.file("example.jpg", package = "bluesnow"))
 ## Apply filter to raw image data
 BB_filtered_image <- BB_filter(rgb_image = raw_image)
+# plot filtered image
+image(BB_filtered_image, col = c('white', 'lightblue', 'royalblue1', 'darkblue'))
 }
 \author{
 Johanna Bloecher, \email{bloecher@fzp.czu.cz}
